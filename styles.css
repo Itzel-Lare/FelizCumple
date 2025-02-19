@@ -11,14 +11,10 @@ body {
     text-shadow: 4px 4px 8px rgba(255, 255, 255, 0.5);
     overflow: hidden;
     text-align: center;
+    position: relative;
 }
 
-@keyframes sparkle {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
+/* Ajuste para que los destellos aparezcan en toda la pantalla */
 .sparkles div {
     position: absolute;
     background: white;
@@ -28,17 +24,25 @@ body {
     animation: sparkle 1.5s infinite;
 }
 
+@keyframes sparkle {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Globos subiendo */
 .balloon {
     position: absolute;
     width: 50px;
     height: 70px;
     background: red;
     border-radius: 50%;
+    bottom: -80px; /* Inicia fuera de la pantalla */
     left: calc(50% - 25px);
-    animation: floatBalloon 5s infinite;
+    animation: floatBalloon 5s linear infinite;
 }
 
 @keyframes floatBalloon {
-    0% { transform: translateY(-100vh); opacity: 1; }
-    100% { transform: translateY(100vh); opacity: 0; }
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
 }
